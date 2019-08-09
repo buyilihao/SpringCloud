@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: zuul
+
+server:
+  port: 8760
+
+eureka:
+  client:
+    service-url:
+      defalutZone: http://localhost:8761/eureka
+
+#路由配置
+zuul:
+  routes:
+    api-a:
+      path: /service/**
+      serviceId: sso-service
+    api-b:
+      path: /service001/**
+      serviceId: sso-service
+    api-c:
+      path: /service002/**
+      serviceId: sso-service
